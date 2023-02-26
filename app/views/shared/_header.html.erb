@@ -1,17 +1,17 @@
 <header class="header">
   <nav class="nav">
     <ul class="header_menu">
-      <li class="nav-link">〇〇さん</li>
+      <li class="nav-link"><%= current_user.name %>さん</li>
       <li class="header_menu_title"><%= link_to "Task Management", root_path, class:"nav-link" %></li>
       <li>
         <ul class="header_menu_inner">
           <li>
             <%= link_to "#", class: "nav-link" do %>
               <span class="mr-1">リストを作成</span>
-              <i class="fa-sharp fa-regular fa-list-check"></i>
+              <i class="fa-solid fa-pen-to-square"></i>
             <% end %>
           </li>
-          <li><%= link_to "サインアウト", "#", class: "nav-link" %></li>
+          <li><%= link_to "サインアウト",  destroy_user_session_path, class: "nav-link", method: :delete %></li>
         </ul>
       </li>
     </ul>
