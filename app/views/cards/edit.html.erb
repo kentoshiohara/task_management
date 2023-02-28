@@ -6,17 +6,17 @@
       <% end %>
       <div class="cardeditForm_title">
         <%= f.label :title %>
-        <%= f.text_field :title, class: "form-control", placeholder: "カード名" %>
+        <%= f.text_field :title, class: "form-control", placeholder: "Card name" %>
       </div>
       <div class="cardeditForm_memo">
         <%= f.label :memo %>
-        <%= f.text_area :memo, class: "form-control", placeholder: "詳細" %>
+        <%= f.text_area :memo, class: "form-control", placeholder: "details" %>
       </div>
       <div class="cardeditForm_memo">
-        <label>リスト名</label>
+        <label>List name</label>
         <%= select :card, :list_id, @lists.map{ |l| [l.title, l.id] }, {}, { class: 'form-control' } %>
       </div>
-      <div class="text-center"><%= f.submit "更新する", class: "submitBtn" %></div>
+      <div class="text-center"><%= f.submit "Update", class: "submitBtn" %></div>
     <% end %>
   </div>
 </div>
