@@ -17,7 +17,6 @@
 
         <div class="cardWrapper">
           <% list.cards.each do |card| %>
-
           <%= link_to list_card_path(list, card), class: "cardDetail_link" do %>
           <div class="card">
             <div class="card_contents">
@@ -30,11 +29,15 @@
             </div>
           </div>
           <% end %>
-
           <% end %>
+
           <div class="addCard">
             <i class="far fa-plus-square"></i>
             <%= link_to "Add a new card", new_list_card_path(list), class: "addCard_link" %>
+          </div>
+          <div class="list_arrows">
+            <div class="arrow"><%= link_to "◀︎", move_left_top_path(list) %></div>
+            <div class="arrow"><%= link_to "▶︎", move_right_top_path(list) %></div>
           </div>
         </div>
 

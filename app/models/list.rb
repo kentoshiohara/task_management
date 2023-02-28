@@ -1,4 +1,6 @@
 class List < ApplicationRecord
+  acts_as_list
+  
   belongs_to :user
   has_many :cards, -> { order(position: :asc) }, dependent: :destroy
 
