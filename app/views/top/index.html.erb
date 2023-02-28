@@ -2,19 +2,42 @@
   <div class="listWrapper">
     <% @lists.each do |list| %>
       <div class="list">
+
         <div class="list_header">
           <h2 class="list_header_title"><%= list.title %></h2>
-
             <div class="list_header_action">
-            <%= link_to list_path(list), method: :delete, data: {confirm: "#{list.title}を削除しても大丈夫ですか？"} do %>
-            <i class="fas fa-trash"></i>
-            <% end%>
-            <%# <%= link_to(content_tag(:i, '', class: 'fas fa-pen'), edit_list_path(list)) %>
-            <%= link_to edit_list_path(list), method: :get do %>
-            <i class="fas fa-pen"></i>
-            <% end%>
+              <%= link_to list_path(list), method: :delete, data: {confirm: "Are you sure to delete '#{list.title}' list?"} do %>
+              <i class="fas fa-trash"></i>
+              <% end%>
+              <%= link_to edit_list_path(list), method: :get do %>
+              <i class="fas fa-pen"></i>
+              <% end%>
+            </div>
+        </div>
+
+        <div class="cardWrapper">
+          <% list.cards.each do |card| %>
+
+          <%= link_to list_card_path(list, card), class: "cardDetail_link" do %>
+          <div class="card">
+            <div class="card_contents">
+              <h6 class="card_title"><%= card.title %></h6>
+              <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
+            </div>
+            <div class="card_arrow">
+              <div><%= link_to "▲", move_higher_top_path(card) %></div>
+              <div><%= link_to "▼", move_lower_top_path(card) %></div>
+            </div>
+          </div>
+          <% end %>
+
+          <% end %>
+          <div class="addCard">
+            <i class="far fa-plus-square"></i>
+            <%= link_to "Add a new card", new_list_card_path(list), class: "addCard_link" %>
           </div>
         </div>
+
       </div>
     <% end %>
   </div>

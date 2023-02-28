@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_26_013530) do
+ActiveRecord::Schema.define(version: 2023_02_27_064210) do
+
+  create_table "cards", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "memo"
+    t.bigint "list_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "position"
+    t.index ["list_id"], name: "index_cards_on_list_id"
+  end
 
   create_table "lists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
@@ -33,5 +43,6 @@ ActiveRecord::Schema.define(version: 2023_02_26_013530) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cards", "lists"
   add_foreign_key "lists", "users"
 end

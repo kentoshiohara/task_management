@@ -1,0 +1,27 @@
+<div class='carddetailPage'>
+  <div class="container">
+    <div class="cardContents">
+      <div class="cardContents_title">
+        <div>Title</div>
+        <h2><%= @card.title %></h2>
+      </div>
+      <div class="cardContents_memo">
+        <div>Memo</div>
+        <div><%= @card.memo %></div>
+      </div>
+      <div class="cardContents_listStatus">
+        <div>List name</div>
+        <div><%= @card.list.title %></div>
+      </div>
+
+      <div class="cardContents_btnArea">
+        <%= link_to 'Edit', edit_list_card_path(@card.list, @card), class: "edit_btn" %>
+        <%= link_to 'Delete', list_card_path(@card.list, @card), class: "text-danger delete_btn", method: :delete, data: { confirm: "Are you really sure?" } %>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
