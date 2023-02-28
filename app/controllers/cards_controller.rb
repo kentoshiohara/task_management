@@ -9,6 +9,7 @@ class CardsController < ApplicationController
 
   def create
     @card = Card.new(card_params)
+    
     if @card.save
       redirect_to :root
     else

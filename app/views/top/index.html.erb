@@ -20,17 +20,21 @@
 
           <%= link_to list_card_path(list, card), class: "cardDetail_link" do %>
           <div class="card">
-            <h3 class="card_title"><%= card.title %></h3>
-            <% if card.memo.present? %>
+            <div class="card_contents">
+              <h6 class="card_title"><%= card.title %></h6>
               <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
-            <% end %>
+            </div>
+            <div class="card_arrow">
+              <div><%= link_to "▲", move_higher_top_path(card) %></div>
+              <div><%= link_to "▼", move_lower_top_path(card) %></div>
+            </div>
           </div>
           <% end %>
 
           <% end %>
           <div class="addCard">
             <i class="far fa-plus-square"></i>
-            <%= link_to "さらにカードを追加", new_list_card_path(list), class: "addCard_link" %>
+            <%= link_to "カードを追加", new_list_card_path(list), class: "addCard_link" %>
           </div>
         </div>
 
