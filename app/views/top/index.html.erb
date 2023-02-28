@@ -24,8 +24,8 @@
               <div class="card_detail is-exist"><i class="fas fa-bars"></i></div>
             </div>
             <div class="card_arrow">
-              <div><%= link_to "▲", move_higher_top_path(card) %></div>
-              <div><%= link_to "▼", move_lower_top_path(card) %></div>
+              <div><%= link_to "∧", move_higher_top_path(card) %></div>
+              <div><%= link_to "∨", move_lower_top_path(card) %></div>
             </div>
           </div>
           <% end %>
@@ -36,8 +36,8 @@
             <%= link_to "Add a new card", new_list_card_path(list), class: "addCard_link" %>
           </div>
           <div class="list_arrows">
-            <div class="arrow"><%= link_to "◀︎", move_left_top_path(list) %></div>
-            <div class="arrow"><%= link_to "▶︎", move_right_top_path(list) %></div>
+            <div class="arrow"><%= link_to "<", move_left_top_path(list) %></div>
+            <div class="arrow"><%= link_to ">", move_right_top_path(list) %></div>
           </div>
         </div>
 
