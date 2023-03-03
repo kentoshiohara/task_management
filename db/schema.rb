@@ -31,25 +31,6 @@ ActiveRecord::Schema.define(version: 2023_02_28_121545) do
     t.index ["user_id"], name: "index_lists_on_user_id"
   end
 
-  create_table "memberships", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "room_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["room_id"], name: "index_memberships_on_room_id"
-    t.index ["user_id"], name: "index_memberships_on_user_id"
-  end
-
-  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.bigint "user_id", null: false
-    t.bigint "list_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["list_id"], name: "index_rooms_on_list_id"
-    t.index ["user_id"], name: "index_rooms_on_user_id"
-  end
-
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -65,8 +46,4 @@ ActiveRecord::Schema.define(version: 2023_02_28_121545) do
 
   add_foreign_key "cards", "lists"
   add_foreign_key "lists", "users"
-  add_foreign_key "memberships", "rooms"
-  add_foreign_key "memberships", "users"
-  add_foreign_key "rooms", "lists"
-  add_foreign_key "rooms", "users"
 end
